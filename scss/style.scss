@@ -1,10 +1,17 @@
+@import "_mixin";
+
 $color_negro:#212529;
 
+$estilos:( 
+    justify-content: center,
+    padding: 1rem,
+);
+
+
+
 .conteiner_soporte{
-    display: flex;
     justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
+    @extend .product_list;
 
     .adjus_img{
         max-width: 80%;
@@ -23,10 +30,11 @@ $color_negro:#212529;
 }
 
 .category_list{
-    display: flex;
+    @extend .contenedor_category;
     flex-direction: column;
     width: 20%;
-    padding: 1rem;
+    padding: map-get($estilos 
+    , padding);
     #category_items{
         justify-content: center;
         padding: 1rem;
@@ -38,9 +46,7 @@ $color_negro:#212529;
 }
 
 .product_list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    @include flex-row-wrap;
     .product_item{
         display: grid;
         margin: 1rem;
@@ -73,3 +79,7 @@ $color_negro:#212529;
         }
     }
 }
+
+$redes:(
+    
+)
